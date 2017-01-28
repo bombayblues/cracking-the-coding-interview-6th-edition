@@ -85,4 +85,75 @@ public class BigOExamples {
         }
     }
 
+    /**
+     * Fibonacci series - 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+     * 
+     * Adding two previous numbers in the series
+     * 
+     * Recurssion: O(2^n)
+     * 
+     * @param n
+     * @return
+     */
+
+    private int fibonacci(final int n) {
+        if (n <= 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    /**
+     * Loop through n times to find the fibonacci series for n using recurssion
+     * 
+     * @param n
+     * @return
+     */
+    public int[] fibSeries(final int n) {
+        final int[] array = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            array[i] = fibonacci(i);
+        }
+
+        return array;
+    }
+
+    /**
+     * Using memoization
+     * 
+     * @param n
+     * @return
+     */
+    public int[] memoFibSeries(final int n) {
+        final int[] array = new int[n + 1];
+        final int[] memo = new int[n + 1];
+        for (int i = 0; i <= n; i++) {
+            array[i] = memoizationFib(i, memo);
+        }
+
+        return array;
+    }
+
+    /**
+     * Memoization, technique to cache previous responses and return it when you find it.
+     * 
+     * @param n
+     * @return
+     */
+    private int memoizationFib(final int n, final int[] memo) {
+        if (n <= 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else if (memo[n] > 0) {
+            return memo[n];
+        }
+
+        memo[n] = memoizationFib(n - 1, memo) + memoizationFib(n - 2, memo);
+        return memo[n];
+    }
+
 }

@@ -13,6 +13,7 @@ public class BigOExamplesTest {
     BigOExamples bigOExamples;
     int[] array;
     Map<Integer, Boolean> testDataPirimes;
+    int[] fibResult;
 
     @Before
     public void setUp() {
@@ -32,6 +33,8 @@ public class BigOExamplesTest {
         testDataPirimes.put(9, false);
         testDataPirimes.put(10, false);
         testDataPirimes.put(11, true);
+
+        fibResult = new int[] { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610 };
     }
 
     @Test
@@ -53,5 +56,11 @@ public class BigOExamplesTest {
     @Test
     public void testFactorial() {
         Assert.assertSame(120, bigOExamples.factorial(5));
+    }
+
+    @Test
+    public void testFib() {
+        Assert.assertArrayEquals(fibResult, bigOExamples.fibSeries(15));
+        Assert.assertArrayEquals(fibResult, bigOExamples.memoFibSeries(15));
     }
 }
