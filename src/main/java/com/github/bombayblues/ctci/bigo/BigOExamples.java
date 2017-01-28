@@ -12,6 +12,10 @@ public class BigOExamples {
     /**
      * Inverses integer array
      * 
+     * Example 6: Pg 48
+     * 
+     * Complexity O(n)
+     * 
      * @param array
      */
     public void reverse(final int[] array) {
@@ -36,6 +40,10 @@ public class BigOExamples {
      * 
      * A whole number greater than 1, which is divisible by either 1 or itself.
      * 
+     * Example 10: Pg 50
+     * 
+     * Complexity O(√n)
+     *
      * @param n
      * @return true if its divisible by only 1 or itself
      */
