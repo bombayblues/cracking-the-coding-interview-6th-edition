@@ -49,4 +49,9 @@ public class BigOExamplesTest {
                               bigOExamples.isPrime(entry.getKey()), entry.getValue());
         }
     }
+
+    @Test
+    public void testFactorial() {
+        Assert.assertSame(120, bigOExamples.factorial(5));
+    }
 }
