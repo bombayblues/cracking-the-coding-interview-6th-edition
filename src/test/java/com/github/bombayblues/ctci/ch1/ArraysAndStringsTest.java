@@ -24,6 +24,10 @@ public class ArraysAndStringsTest {
         Assert.assertEquals(true, arraysAndStrings.areOneEditStrings("pales", "pale"));
         Assert.assertEquals(true, arraysAndStrings.areOneEditStrings("pale", "bale"));
         Assert.assertEquals(false, arraysAndStrings.areOneEditStrings("pale", "bake"));
+
+        Assert.assertEquals("a2b1c3d2", arraysAndStrings.basicCompression("aabcccdd"));
+        Assert.assertEquals("a2b1c3d1", arraysAndStrings.basicCompression("aabcccd"));
+        Assert.assertEquals("a2b1c3d3", arraysAndStrings.basicCompression("aabcccddd"));
     }
 
 }

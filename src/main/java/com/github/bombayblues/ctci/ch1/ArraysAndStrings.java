@@ -128,4 +128,32 @@ public class ArraysAndStrings {
         }
         return true;
     }
+
+    /**
+     * Basic string compression usinf counts of repeated chars. Example: aabcccdd will become
+     * a2b1c3d2
+     * 
+     * @param str
+     * @return
+     */
+
+    public String basicCompression(final String str) {
+        int counter = 0;
+        final StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            counter++;
+            if ((i + 1) >= str.length()) {
+                sb.append(str.charAt(i)).append(counter);
+                break;
+            }
+            if (str.charAt(i + 1) == str.charAt(i)) {
+                continue;
+            } else {
+                sb.append(str.charAt(i)).append(counter);
+                counter = 0;
+            }
+        }
+
+        return sb.toString();
+    }
 }
