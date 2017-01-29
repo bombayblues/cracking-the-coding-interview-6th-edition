@@ -19,6 +19,11 @@ public class ArraysAndStringsTest {
 
         Assert.assertEquals(false, arraysAndStrings.isPalindrome("london"));
         Assert.assertEquals(true, arraysAndStrings.isPalindrome("hannah"));
+
+        Assert.assertEquals(true, arraysAndStrings.areOneEditStrings("pale", "ple"));
+        Assert.assertEquals(true, arraysAndStrings.areOneEditStrings("pales", "pale"));
+        Assert.assertEquals(true, arraysAndStrings.areOneEditStrings("pale", "bale"));
+        Assert.assertEquals(false, arraysAndStrings.areOneEditStrings("pale", "bake"));
     }
 
 }
