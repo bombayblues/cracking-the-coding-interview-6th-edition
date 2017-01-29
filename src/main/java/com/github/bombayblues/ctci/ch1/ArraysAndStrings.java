@@ -74,6 +74,13 @@ public class ArraysAndStrings {
         return true;
     }
 
+    /**
+     * True if reverse is same as in kayak
+     * 
+     * @param str
+     * @return
+     */
+
     public boolean isPalindrome(final String str) {
         for (int i = 0; i < (str.length() / 2); i++) {
             final int j = str.length() - 1 - i;
@@ -82,6 +89,43 @@ public class ArraysAndStrings {
             }
         }
 
+        return true;
+    }
+
+    /**
+     * Given two strings find if they are one or zero edits away.
+     * 
+     * @param aStr
+     * @param pStr
+     * @return
+     */
+    public boolean areOneEditStrings(final String aStr, final String pStr) {
+        // Check lebgth
+        if (Math.abs(aStr.length() - pStr.length()) > 1) {
+            return false;
+        }
+
+        final String s1 = aStr.length() < pStr.length() ? aStr : pStr;
+        final String s2 = aStr.length() < pStr.length() ? pStr : aStr;
+
+        int aIndex = 0;
+        int pIndex = 0;
+        boolean foundDifference = false;
+        while ((aIndex < s1.length()) && (pIndex < s2.length())) {
+            if (s1.charAt(aIndex) != s2.charAt(pIndex)) {
+                // Allow the flag to be toggled only once
+                if (foundDifference) {
+                    return false;
+                }
+                foundDifference = true;
+                if (s1.length() == s2.length()) { // On replace, move shorter pointer
+                    aIndex++;
+                }
+            } else {
+                aIndex++; // If matching, move shorter pointer
+            }
+            pIndex++; // Always move pointer for longer string
+        }
         return true;
     }
 }
