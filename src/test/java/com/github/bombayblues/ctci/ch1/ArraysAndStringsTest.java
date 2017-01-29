@@ -28,6 +28,13 @@ public class ArraysAndStringsTest {
         Assert.assertEquals("a2b1c3d2", arraysAndStrings.basicCompression("aabcccdd"));
         Assert.assertEquals("a2b1c3d1", arraysAndStrings.basicCompression("aabcccd"));
         Assert.assertEquals("a2b1c3d3", arraysAndStrings.basicCompression("aabcccddd"));
+
+        final int[][] twoDArray = new int[][] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        final int[][] rotate90Deg = new int[][] { { 7, 4, 1 }, { 8, 5, 2 }, { 9, 6, 3 } };
+
+        Assert.assertArrayEquals(rotate90Deg, arraysAndStrings.rotateMatrixBy90Degree(twoDArray));
+
+        Assert.assertEquals(true, arraysAndStrings.isRotation("waterbottle", "erbottlewat"));
     }
 
 }
