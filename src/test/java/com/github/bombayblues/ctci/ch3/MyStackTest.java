@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
- * Created by @author bombayblues on 1/30/17.
+ * Test class to test Stack exercises
  */
 public class MyStackTest {
 
