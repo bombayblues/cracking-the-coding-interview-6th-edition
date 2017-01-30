@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class LinkedListATest {
+public class MyLinkedListTest {
 
-    private final static Logger logger = Logger.getLogger(LinkedListATest.class.getSimpleName());
+    private final static Logger logger = Logger.getLogger(MyLinkedListTest.class.getSimpleName());
 
     private List<Node> holder;
 
@@ -139,7 +139,7 @@ public class LinkedListATest {
 
     @Test
     public void testBeginingOfLoop() {
-        final LinkedListA aList = new LinkedListA();
+        final MyLinkedList aList = new MyLinkedList();
 
         Node start = null;
         for (int i = 0; i <= 7; i++) {
@@ -154,6 +154,6 @@ public class LinkedListATest {
             }
         }
 
-        Assert.assertEquals(start, LinkedListUtil.findBeginingOfLoop(aList.getHead()));
+        Assert.assertEquals(start, MyLinkedListUtil.findBeginingOfLoop(aList.getHead()));
     }
 }
