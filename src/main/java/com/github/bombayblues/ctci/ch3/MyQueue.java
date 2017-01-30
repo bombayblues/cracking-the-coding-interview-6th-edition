@@ -1,4 +1,4 @@
-package com.github.bombayblues.ctci.com.github.bombayblues.ctci.ch3;
+package com.github.bombayblues.ctci.ch3;
 
 /**
  * Simple Queue implementation using linked list
