@@ -6,7 +6,7 @@ import java.util.Stack;
  * Utility class for chapter 2 exercise
  */
 
-public class LinkedListUtil {
+public class MyLinkedListUtil {
 
     /**
      * Problem:
