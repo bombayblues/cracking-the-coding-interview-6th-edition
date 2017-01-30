@@ -1,6 +1,8 @@
 .classpath
 .settings
 .project
+.idea
+ctci.iml
 /target/
 .idea/
 ctci.iml
