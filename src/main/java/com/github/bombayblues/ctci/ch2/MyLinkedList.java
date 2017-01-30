@@ -3,7 +3,7 @@ package com.github.bombayblues.ctci.ch2;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LinkedListA {
+public class MyLinkedList {
 
     private Node head;
 

@@ -14,7 +14,7 @@ public class LinkedListATest {
 
     private List<Node> holder;
 
-    private LinkedListA aLL;
+    private MyLinkedList aLL;
 
     private Node palindrome;
 
@@ -29,7 +29,7 @@ public class LinkedListATest {
             this.holder.add(a);
         }
 
-        this.aLL = new LinkedListA();
+        this.aLL = new MyLinkedList();
 
         final Node n1 = new Node(1);
         this.aLL.addNode(n1);
@@ -63,7 +63,7 @@ public class LinkedListATest {
 
     @Test
     public void simpleTest() {
-        final LinkedListA ll = new LinkedListA();
+        final MyLinkedList ll = new MyLinkedList();
 
         for (final Node n : this.holder) {
             ll.addNode(n);
@@ -90,28 +90,28 @@ public class LinkedListATest {
 
     @Test
     public void testKTHToLast() {
-        Assert.assertEquals(7, LinkedListUtil.kTHToLast(this.aLL.getHead(), 2).data);
-        Assert.assertEquals(1, LinkedListUtil.kTHToLast(this.aLL.getHead(), 7).data);
+        Assert.assertEquals(7, MyLinkedListUtil.kTHToLast(this.aLL.getHead(), 2).data);
+        Assert.assertEquals(1, MyLinkedListUtil.kTHToLast(this.aLL.getHead(), 7).data);
     }
 
     @Test
     public void testDeleteGivenNode() {
         final Node node = this.aLL.getHead().next;
-        Assert.assertEquals(true, LinkedListUtil.deleteGivenNode(node));
+        Assert.assertEquals(true, MyLinkedListUtil.deleteGivenNode(node));
         Assert.assertEquals("{ 1 5 6 3 7 5 }", this.aLL.toString());
         logger.info("Result Case: " + this.aLL.toString());
     }
 
     @Test
     public void testPalindrome() {
-        Assert.assertTrue(LinkedListUtil.isPalindrome(this.palindrome));
-        Assert.assertTrue(LinkedListUtil.isPalindromeWithRunner(this.palindrome));
+        Assert.assertTrue(MyLinkedListUtil.isPalindrome(this.palindrome));
+        Assert.assertTrue(MyLinkedListUtil.isPalindromeWithRunner(this.palindrome));
     }
 
     @Test
     public void testIntersection() {
-        final LinkedListA aList = new LinkedListA();
-        final LinkedListA pList = new LinkedListA();
+        final MyLinkedList aList = new MyLinkedList();
+        final MyLinkedList pList = new MyLinkedList();
 
         final Node iNode = new Node(5);
 
@@ -134,6 +134,6 @@ public class LinkedListATest {
             }
         }
 
-        Assert.assertEquals(iNode, LinkedListUtil.getIntersectionPoint(aList.getHead(), pList.getHead()));
+        Assert.assertEquals(iNode, MyLinkedListUtil.getIntersectionPoint(aList.getHead(), pList.getHead()));
     }
 }
