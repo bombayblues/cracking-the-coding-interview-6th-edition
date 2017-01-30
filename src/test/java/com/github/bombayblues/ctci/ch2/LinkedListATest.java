@@ -136,4 +136,24 @@ public class LinkedListATest {
 
         Assert.assertEquals(iNode, MyLinkedListUtil.getIntersectionPoint(aList.getHead(), pList.getHead()));
     }
+
+    @Test
+    public void testBeginingOfLoop() {
+        final LinkedListA aList = new LinkedListA();
+
+        Node start = null;
+        for (int i = 0; i <= 7; i++) {
+            final Node node = new Node(i);
+            aList.addNode(node);
+            if (i == 3) {
+                start = node;
+            }
+
+            if (i == 7) {
+                node.next = start;
+            }
+        }
+
+        Assert.assertEquals(start, LinkedListUtil.findBeginingOfLoop(aList.getHead()));
+    }
 }

@@ -1,14 +1,12 @@
 package com.github.bombayblues.ctci.ch2;
 
 /**
- * 
  * Simple Node in a linked list
- * 
+ * <p>
  * Ideally we should protect instance variables and expose it through accessor methods but to keep
  * it simple we are going to make the variables public
- * 
- * @author Anoop
  *
+ * @author bombayblues
  */
 
 public class Node {

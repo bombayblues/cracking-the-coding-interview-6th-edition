@@ -17,10 +17,10 @@ public class MyLinkedListUtil {
      * Solution:
      * <p>
      * <ul>
-     * <i>Use two pointers p1 and p2 both starting at head</i>
-     * <i>Move p1 to k nodes into the list</i>
-     * <i>Now move both pointers simultaneously.</i>
-     * <i>Now when p1 hits the end of the list p2 will be at kth from last</i>
+     * <li>Use two pointers p1 and p2 both starting at head</i>
+     * <li>Move p1 to k nodes into the list</i>
+     * <li>Now move both pointers simultaneously.</i>
+     * <li>Now when p1 hits the end of the list p2 will be at kth from last</i>
      * </ul>
      * <p>
      * <p>
@@ -128,11 +128,11 @@ public class MyLinkedListUtil {
      * <p>
      * Soultion:
      * <p>
-     * <i>Use a fast and a slow runner.</i>
-     * <i>Fast runner is moving 2x the slow</i>
-     * <i>We push the data from slow runner onto a stack</i>
-     * <i>If runner is not null at the end of the loop, linked list odd number of items so we skip an item from slow runner</i>
-     * <i>Finally, we start poping the items from the stack and comparing it against rest of the slow runner</i>
+     * <li>Use a fast and a slow runner.</i>
+     * <li>Fast runner is moving 2x the slow</i>
+     * <li>We push the data from slow runner onto a stack</i>
+     * <li>If runner is not null at the end of the loop, linked list odd number of items so we skip an item from slow runner</i>
+     * <li>Finally, we start poping the items from the stack and comparing it against rest of the slow runner</i>
      *
      * @param head
      * @return
@@ -179,12 +179,16 @@ public class MyLinkedListUtil {
      * Solution:
      * <p>
      * <ul>
-     * <i>If the lists have intersection, they both will have same tail</i>
-     * <i>Find the tail and the length of each linked list</i>
-     * <i>Start at the start of both linked list</i>
-     * <i>Advance the pointer in longer linked list by the difference in length</i>
-     * <i> Traverse both list until they have same reference</i>
+     * <li>If the lists have intersection, they both will have same tail</i>
+     * <li>Find the tail and the length of each linked list</i>
+     * <li>Start at the start of both linked list</i>
+     * <li>Advance the pointer in longer linked list by the difference in length</i>
+     * <li> Traverse both list until they have same reference</i>
      * </ul>
+     * <p>
+     * Complexity:
+     * Time - O(A + B) where A and B are lengths or the two linked list
+     * Space - O(1) additional space
      *
      * @param aList
      * @param pList
@@ -226,5 +230,44 @@ public class MyLinkedListUtil {
         }
 
         return longer;
+    }
+
+    /**
+     * Problem:
+     * <p>
+     * Loop Detection. Implement an algorithm that returns the node at the begining of the loop
+     * <p>
+     * Solution:
+     * <ul>
+     * <li>Create two pointers fast and slow such that fast is 2x ahead of slow</li>
+     * <li>When they collide, move slow pointer to the head, leave fast as is</li>
+     * <li>Move slow and fast at 1x and return where they collide</li>
+     * </ul>
+     *
+     * @param head
+     * @return
+     */
+    public static Node findBeginingOfLoop(final Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            // Check for collision
+            if (fast == slow) {
+                break;
+            }
+        }
+
+        slow = head;
+
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return fast;
     }
 }
