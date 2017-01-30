@@ -9,14 +9,14 @@ public class LinkedListA {
 
     /**
      * Simple add node to the end of linkedlist
-     * 
+     *
      * @param node
      */
     public void addNode(final Node node) {
-        if (head == null) {
-            head = node;
+        if (this.head == null) {
+            this.head = node;
         } else {
-            Node runner = head;
+            Node runner = this.head;
             while (runner.next != null) {
                 runner = runner.next;
             }
@@ -27,7 +27,7 @@ public class LinkedListA {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("{ ");
-        Node runner = head;
+        Node runner = this.head;
         while (runner.next != null) {
             sb.append(runner.data).append(" ");
             runner = runner.next;
@@ -39,14 +39,14 @@ public class LinkedListA {
 
     /**
      * Delete duplicates using Set
-     * 
+     * <p>
      * time complexity O(n)
-     * 
-     * @param aHead
+     *
+     * @param
      */
     public void removeDupsEasy() {
         final Set<Integer> set = new HashSet<Integer>();
-        Node aHead = head;
+        Node aHead = this.head;
         Node previous = null;
         while (aHead != null) {
             if (set.contains(aHead.data)) {
@@ -63,7 +63,7 @@ public class LinkedListA {
      * space complexity O(1) time complexity O(n^2)
      */
     public void removeDupsNoStore() {
-        Node current = head;
+        Node current = this.head;
         while (current != null) {
             Node runner = current;
             while (runner.next != null) {
@@ -76,4 +76,9 @@ public class LinkedListA {
             current = current.next;
         }
     }
+
+    public Node getHead() {
+        return this.head;
+    }
+
 }
