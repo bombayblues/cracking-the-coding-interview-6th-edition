@@ -9,10 +9,11 @@ import org.junit.rules.ExpectedException;
 /**
  * Created by @author bombayblues on 1/30/17.
  */
-public class FixedMultiStackTest {
+public class MyStackTest {
 
-    int[] testArray;
-    FixedMultiStack<Integer> aStack;
+    private int[] testArray;
+    private FixedMultiStack<Integer> aStack;
+    private StackMin mStack;
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -33,6 +34,12 @@ public class FixedMultiStackTest {
         for (int i = 6; i < 9; i++) {
             this.aStack.push(2, i);
         }
+
+        this.mStack = new StackMin();
+        this.mStack.push(5);
+        this.mStack.push(6);
+        this.mStack.push(3);
+        this.mStack.push(7);
     }
 
     @Test
@@ -51,5 +58,14 @@ public class FixedMultiStackTest {
 
         this.expectedException.expect(RuntimeException.class);
         this.aStack.pop(2);
+    }
+
+    @Test
+    public void testStackMin() {
+        Assert.assertEquals(new Integer(3), this.mStack.minValue());
+        Assert.assertEquals(new Integer(7), this.mStack.pop());
+        Assert.assertEquals(new Integer(3), this.mStack.minValue());
+        Assert.assertEquals(new Integer(3), this.mStack.pop());
+        Assert.assertEquals(new Integer(5), this.mStack.minValue());
     }
 }
