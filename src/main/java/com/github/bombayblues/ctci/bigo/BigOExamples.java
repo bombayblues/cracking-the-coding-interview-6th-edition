@@ -2,20 +2,19 @@ package com.github.bombayblues.ctci.bigo;
 
 /**
  * Examples from BigO chapter
- * 
- * @author Anoop
  *
+ * @author bombayblues
  */
 
 public class BigOExamples {
 
     /**
      * Inverses integer array
-     * 
+     * <p>
      * Example 6: Pg 48
-     * 
+     * <p>
      * Complexity O(n)
-     * 
+     *
      * @param array
      */
     public void reverse(final int[] array) {
@@ -37,11 +36,11 @@ public class BigOExamples {
 
     /**
      * What is a prime number?
-     * 
+     * <p>
      * A whole number greater than 1, which is divisible by either 1 or itself.
-     * 
+     * <p>
      * Example 10: Pg 50
-     * 
+     * <p>
      * Complexity O(√n)
      *
      * @param n
@@ -66,13 +65,13 @@ public class BigOExamples {
     /**
      * The factorial of a non-negative integer n, denoted by n!, is the product of all positive
      * integers less than or equal to n. For example,
-     * 
+     * <p>
      * 5!=5 * 4 * 3 * 2 * 1 = 120.
-     * 
+     * <p>
      * Example 11 : Pg 51
-     * 
+     * <p>
      * Complexity O(n)
-     * 
+     *
      * @param n
      * @return
      */
@@ -87,11 +86,11 @@ public class BigOExamples {
 
     /**
      * Fibonacci series - 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-     * 
+     * <p>
      * Adding two previous numbers in the series
-     * 
+     * <p>
      * Recurssion: O(2^n)
-     * 
+     *
      * @param n
      * @return
      */
@@ -108,7 +107,7 @@ public class BigOExamples {
 
     /**
      * Loop through n times to find the fibonacci series for n using recurssion
-     * 
+     *
      * @param n
      * @return
      */
@@ -123,7 +122,7 @@ public class BigOExamples {
 
     /**
      * Using memoization
-     * 
+     *
      * @param n
      * @return
      */
@@ -139,7 +138,7 @@ public class BigOExamples {
 
     /**
      * Memoization, technique to cache previous responses and return it when you find it.
-     * 
+     *
      * @param n
      * @return
      */
