@@ -1,5 +1,8 @@
 package com.github.bombayblues.ctci.ch3;
 
+import com.github.bombayblues.ctci.ch3.animalshelter.AnimalQueue;
+import com.github.bombayblues.ctci.ch3.animalshelter.Cat;
+import com.github.bombayblues.ctci.ch3.animalshelter.Dog;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -81,5 +84,29 @@ public class MyStackTest {
         this.queueUsingStack.add(4);
         this.queueUsingStack.add(5);
         Assert.assertEquals(new Integer(2), this.queueUsingStack.remove());
+    }
+
+    @Test
+    public void testAnimalShelter() {
+        final Dog dog1 = new Dog("D1");
+        final Dog dog2 = new Dog("D2");
+        final Dog dog3 = new Dog("D3");
+
+        final Cat cat1 = new Cat("C1");
+        final Cat cat2 = new Cat("C2");
+        final Cat cat3 = new Cat("C3");
+
+        final AnimalQueue animalQueue = new AnimalQueue();
+        animalQueue.enqueue(dog1);
+        animalQueue.enqueue(dog2);
+        animalQueue.enqueue(cat1);
+        animalQueue.enqueue(dog3);
+        animalQueue.enqueue(cat2);
+        animalQueue.enqueue(cat3);
+
+        Assert.assertEquals(dog1, animalQueue.dequeueDog());
+        Assert.assertEquals(dog2, animalQueue.dequeueAny());
+        Assert.assertEquals(cat1, animalQueue.dequeueAny());
+        Assert.assertEquals(cat2, animalQueue.dequeueCat());
     }
 }
