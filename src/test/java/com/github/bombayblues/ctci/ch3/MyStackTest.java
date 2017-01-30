@@ -14,6 +14,7 @@ public class MyStackTest {
     private int[] testArray;
     private FixedMultiStack<Integer> aStack;
     private StackMin mStack;
+    MyQueueUsingStack<Integer> queueUsingStack;
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -36,10 +37,15 @@ public class MyStackTest {
         }
 
         this.mStack = new StackMin();
-        this.mStack.push(5);
-        this.mStack.push(6);
-        this.mStack.push(3);
-        this.mStack.push(7);
+        this.mStack.push(5); // {5}
+        this.mStack.push(6); // {6 5}
+        this.mStack.push(3); // {3 6 5}
+        this.mStack.push(7); // {7 3 6 5}
+
+        this.queueUsingStack = new MyQueueUsingStack<Integer>();
+        this.queueUsingStack.add(1);
+        this.queueUsingStack.add(2);
+        this.queueUsingStack.add(3);
     }
 
     @Test
@@ -63,9 +69,17 @@ public class MyStackTest {
     @Test
     public void testStackMin() {
         Assert.assertEquals(new Integer(3), this.mStack.minValue());
-        Assert.assertEquals(new Integer(7), this.mStack.pop());
+        Assert.assertEquals(new Integer(7), this.mStack.pop()); // {3 6 5}
         Assert.assertEquals(new Integer(3), this.mStack.minValue());
-        Assert.assertEquals(new Integer(3), this.mStack.pop());
+        Assert.assertEquals(new Integer(3), this.mStack.pop()); // {6 5}
         Assert.assertEquals(new Integer(5), this.mStack.minValue());
+    }
+
+    @Test
+    public void testQueueUsingStacks() {
+        Assert.assertEquals(new Integer(1), this.queueUsingStack.remove());
+        this.queueUsingStack.add(4);
+        this.queueUsingStack.add(5);
+        Assert.assertEquals(new Integer(2), this.queueUsingStack.remove());
     }
 }
