@@ -1,5 +1,7 @@
 package com.github.bombayblues.ctci.ch4;
 
+import com.github.bombayblues.ctci.ch4.buildorder.ancestor.BTreeNodeWithParent;
+
 import java.util.ArrayList;
 
 /**
@@ -209,5 +211,40 @@ public class BTreeUtil {
         }
 
         return true;
+    }
+
+
+    /**
+     * Problem:
+     * <p>
+     * Find common anccestor for two nodes in a binary tree;
+     * <p>
+     * Solution:
+     * <p>
+     * Idea is to use similar logic as in the logic of finding the node where two linked lists intersect (2.7)
+     */
+    public BTreeNodeWithParent commonAncestor(final BTreeNodeWithParent pNode, final BTreeNodeWithParent qNode) {
+
+        //1. Find depth of the two nodes.
+        int pDepth = pNode.depth();
+        final int qDepth = qNode.depth();
+
+        BTreeNodeWithParent first = (pDepth > qDepth) ? pNode : qNode;
+        BTreeNodeWithParent second = (pDepth > qDepth) ? pNode : qNode;
+
+        // 2. Make both the nodes start at same level
+        while (pDepth != qDepth && first != null) {
+            first = first.getParent();
+            pDepth--;
+        }
+
+        // 3. Find where they intersect
+
+        while (first != null && second != null && first != second) {
+            first = first.getParent();
+            second = second.getParent();
+        }
+
+        return first != null || second == null ? null : first;
     }
 }
